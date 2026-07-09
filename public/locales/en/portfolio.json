@@ -1,7 +1,8 @@
 {
-  "modal-btn": "Visit Now",
-  "info": "Project Details",
-  "over": "Overview",
   "back-text": "View Details",
+  "img-btn": "Click to enlarge",
+  "info": "Project Details",
+  "modal-btn": "Visit Now",
+  "over": "Overview",
   "tech-use": "Technologies Used"
 }
