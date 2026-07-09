@@ -42,6 +42,7 @@
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .nav-links a:hover {
@@ -72,7 +73,6 @@
     transform: translateY(-1px);
 }
 
-/* Nút Hamburger ẩn mặc định trên PC */
 .menu-toggle-btn {
     display: none;
     background: none;

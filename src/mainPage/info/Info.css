@@ -129,7 +129,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10000; /* Đảm bảo nằm đè lên cả navbar (navbar là 999) */
+    z-index: 10000;
     animation: fadeIn 0.25s ease-out;
 }
 
@@ -151,7 +151,7 @@
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     object-fit: contain;
-    animation: zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Hiệu ứng bung ảnh mượt */
+    animation: zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Nút đóng (X) */
