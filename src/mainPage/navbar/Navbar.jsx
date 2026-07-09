@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import './Navbar.css'
 
+import CvFS from '../../assets/cv-fs.pdf'
+
 export default function Navbar() {
     const { t, i18n } = useTranslation();
+
     const [currentLanguage, setCurrentLanguage] = useState('en');
-    // State quản lý trạng thái đóng/mở menu Mobile (Tên bằng tiếng Anh)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Phương thức toggle đóng mở menu Mobile (Tên bằng tiếng Anh)
     const toggleMobileMenu = () => {
         setIsMenuOpen((prev) => !prev);
     };
@@ -38,7 +39,7 @@ export default function Navbar() {
                     <a href="#info" onClick={() => setIsMenuOpen(false)}>{t("navbar:about")}</a>
                     <a href="#projects" onClick={() => setIsMenuOpen(false)}>{t("navbar:project")}</a>
                     <a href="#skills" onClick={() => setIsMenuOpen(false)}>{t("navbar:skill")}</a>
-                    <a href="#projects" onClick={() => setIsMenuOpen(false)}>CV</a>
+                    <a href={CvFS} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>CV</a>
 
                     {/* Switch language */}
                     <button className="lang-toggle-btn" onClick={toggleLanguage}>
