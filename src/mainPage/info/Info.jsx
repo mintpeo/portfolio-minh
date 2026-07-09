@@ -1,6 +1,8 @@
 import React, {useState} from "react"
 import './Info.css'
 import {useTranslation} from "react-i18next";
+import heroAvatarHead from "../../assets/cv_head.jpg";
+import heroAvatarFull from "../../assets/cv_full.jpg";
 
 export default function Info() {
     const {t, i18n} = useTranslation();
@@ -47,7 +49,7 @@ export default function Info() {
                         </div>
 
                         <img
-                            src="src/assets/cv_head.jpg"
+                            src={heroAvatarHead}
                             alt="Tran Quoc Minh Avatar"
                             className="hero-avatar"
                             onClick={() => setIsImageModalOpen(true)}
@@ -71,7 +73,7 @@ export default function Info() {
                 <div className="image-modal-overlay" onClick={() => setIsImageModalOpen(false)}>
                     <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
                         <button className="image-modal-close" onClick={() => setIsImageModalOpen(false)}>✕</button>
-                        <img src="src/assets/cv_full.jpg" alt="Tran Quoc Minh Avatar" className="enlarged-avatar" />
+                        <img src={heroAvatarFull} alt="Tran Quoc Minh Avatar" className="enlarged-avatar" />
                     </div>
                 </div>
             )}
