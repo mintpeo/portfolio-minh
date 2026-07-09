@@ -1,0 +1,403 @@
+.dark-portfolio {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Timeline Component */
+.section-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+}
+
+.timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.timeline-dot.active {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+    transform: scale(1.2);
+}
+
+.timeline-line {
+    width: 2px;
+    height: 60px;
+    background-color: var(--timeline-color);
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 4rem 8% 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 3.5rem;
+    text-align: left;
+}
+
+.section-tag {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.title-underline {
+    width: 120px;
+    height: 4px;
+    background-color: var(--text-main);
+    margin-top: 0.75rem;
+}
+
+.projects-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Container tạo không gian 3D */
+.projects-grid {
+    display: grid;
+    /* Chia lưới cố định thành 3 cột bằng nhau có kích thước linh hoạt */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem; /* Khoảng cách giữa các thẻ card */
+    width: 100%;
+    perspective: 1000px; /* Giữ nguyên không gian 3D cho card-inner lật mượt */
+}
+
+/* Thẻ dự án ngoài cùng đóng vai trò làm khung cố định hứng sự kiện chuột */
+.project-card {
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    height: 320px; /* Chiều cao cố định của card */
+    width: 100%;   /* Chiếm trọn 100% độ rộng của cột được chia */
+    perspective: 1000px;
+}
+
+/* Lớp bọc xử lý lật chống giật */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Kích hoạt lật khi hover thằng cha */
+.project-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Thiết lập hai mặt song song */
+.card-front, .custom-back-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* Mặt trước */
+.card-front {
+    background-color: var(--bg-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.project-card:hover .card-front {
+    border-color: var(--primary-color);
+}
+
+/* Mặt sau */
+.custom-back-wrapper {
+    background: linear-gradient(135deg, var(--bg-card) 0%, #20233c 100%);
+    border: 1px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Lật sẵn */
+}
+
+.project-icon {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.project-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.project-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.custom-back-wrapper .badge {
+    background-color: rgba(255, 88, 88, 0.2);
+    color: var(--primary-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+
+}
+
+/* Khắc phục lỗi lồng ghép (Nesting) của danh sách công nghệ */
+.list-tech {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.list-tech .item {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.list-tech .item b {
+    color: var(--text-main);
+}
+
+.custom-back-wrapper h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+/* Lớp phủ mờ toàn màn hình phía sau Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 17, 26, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Hộp thoại nội dung chính của Modal */
+.modal-content {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 88, 88, 0.2);
+    color: var(--text-main);
+    width: 90%;
+    max-width: 600px;
+    border-radius: 12px;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Nút đóng (X) ở góc trên bên phải */
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Định dạng tiêu đề bên trong Modal */
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-icon {
+    font-size: 2.5rem;
+}
+
+.modal-header h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Thân bài và vùng chứa thông tin tùy chỉnh */
+.modal-body {
+    line-height: 1.6;
+}
+
+.modal-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Style nút bấm chứa link Demo */
+.slide-right-btn {
+    position: relative;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    padding: 0; /* Đưa padding vào thẻ a để tối ưu vùng click */
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Sửa lỗi CSS Nesting & tối ưu vùng click thực tế cho thẻ a */
+.slide-right-btn a {
+    color: var(--primary-color); /* Chuyển mặc định sang màu cam san hô cho đẹp */
+    text-decoration: none;
+    position: relative;
+    z-index: 2; /* Đảm bảo nổi hẳn lên trên lớp slide màu nền */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem; /* Padding nằm ở đây giúp dễ click trúng link */
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Lớp nền giả tạo hiệu ứng trượt sang phải */
+.slide-right-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    z-index: 0; /* Nằm dưới text */
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- HIỆU ỨNG HOVER ĐÃ CHUẨN HÓA CSS THUẦN --- */
+.slide-right-btn:hover::before {
+    left: 0;
+}
+
+.slide-right-btn:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(255, 88, 88, 0.3);
+}
+
+/* Đổi màu chữ chữ sang trắng và dịch chuyển nhẹ khi hover */
+.slide-right-btn:hover a {
+    color: var(--text-main);
+    transform: translateX(3px);
+}
+
+.modal-divider {
+    border: 0;
+    height: 1px;
+    background: var(--timeline-color);
+    margin: 1.5rem 0;
+}
+
+.modal-custom-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+}
+
+.modal-custom-info p {
+    color: #b3b6cd;
+    font-size: 0.95rem;
+}
+
+/* Các hiệu ứng chuyển động mượt mà (Animations) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive UI */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .nav-links a {
+        margin: 0 0.75rem;
+    }
+    .hero-section {
+        flex-direction: column;
+        padding-top: 4rem;
+    }
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+        margin-right: 1rem;
+    }
+    .section-timeline {
+        display: none;
+    }
+}

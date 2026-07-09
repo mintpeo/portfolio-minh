@@ -1,0 +1,136 @@
+#navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    background-color: rgba(31, 34, 53, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 1px 0px rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Khung container đồng bộ padding hàng ngang của toàn hệ thống */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.nav-logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-main);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.lang-toggle-btn {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--timeline-color);
+    padding: 0.4rem 0.8rem;
+    margin-left: 2rem;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: rgba(255, 88, 88, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Nút Hamburger ẩn mặc định trên PC */
+.menu-toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* --- XỬ LÝ MOBILE RESPONSIVE CHỐNG ĐÈ CHỮ --- */
+@media (max-width: 768px) {
+    /* Hiển thị nút bấm ba dấu gạch */
+    .menu-toggle-btn {
+        display: block;
+    }
+
+    /* Biến nav-links thành menu rèm thả ẩn tuyệt đối */
+    .nav-links {
+        position: absolute;
+        top: 100%; /* Nằm sát ngay mép dưới của thanh navbar */
+        left: 0;
+        width: 100%;
+        background-color: rgba(25, 27, 43, 0.98); /* Nền tối đặc che nội dung phía sau */
+        backdrop-filter: blur(15px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 0;
+
+        /* Hiệu ứng trượt ẩn giấu chiều cao */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+    }
+
+    /* Khi kích hoạt State active thì xổ menu rèm xuống mượt mà */
+    .nav-links.active {
+        max-height: 320px; /* Chiều cao vừa đủ chứa toàn bộ link menu */
+        padding: 1.5rem 0;
+    }
+
+    /* Căn chỉnh lại các thẻ a thành hàng dọc trên Mobile */
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        margin-left: 0; /* Bỏ margin-left lệch dòng của PC */
+        padding: 0.8rem 0;
+        font-size: 1.05rem;
+        color: var(--text-main);
+    }
+
+    /* Định vị lại nút đổi ngôn ngữ nằm gọn gàng cuối menu dọc */
+    .lang-toggle-btn {
+        margin-left: 0;
+        margin-top: 0.8rem;
+        padding: 0.5rem 1.5rem;
+    }
+}

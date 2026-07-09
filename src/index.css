@@ -1,0 +1,17 @@
+:root {
+  --bg-dark: #1f2235;          /* Nền tối chủ đạo của toàn trang */
+  --bg-card: #282b42;          /* Màu nền của các thẻ card dự án/form */
+
+  --primary-color: #ff5858;    /* Màu chính: Sắc cam san hô rực rỡ làm điểm nhấn nổi bật */
+  --secondary-color: #fca5a5;  /* Màu phụ: Tone màu hồng san hô nhạt/mờ hơn dùng cho hiệu ứng hover, text tag */
+
+  --text-main: #ffffff;        /* Màu chữ chính */
+  --text-muted: #8b8ea8;       /* Màu chữ phụ cho mô tả */
+  --timeline-color: #3b3f5c;   /* Màu của đường line bên phải */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

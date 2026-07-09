@@ -1,0 +1,99 @@
+/* Tổng quan khu vực Skills */
+.skills-section {
+    padding: 6rem 8% 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Lưới hiển thị tối đa 4 nhóm trên 1 hàng ngang */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 100%;
+    margin-top: 2.5rem;
+}
+
+/* Thẻ bọc từng nhóm kỹ năng */
+.skill-group-card {
+    background-color: var(--bg-card);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 2.5rem 1.8rem;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+}
+
+/* Hiệu ứng phát sáng nhẹ màu cam san hô khi hover */
+.skill-group-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(255, 88, 88, 0.15);
+}
+
+/* Tiêu đề của từng nhóm card */
+.skill-group-header {
+    display: flex;
+    /*align-items: center;*/
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--timeline-color);
+    padding-bottom: 1rem;
+}
+
+.skill-group-icon {
+    font-size: 1.8rem;
+}
+
+.skill-group-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.3;
+    min-height: 70px;
+}
+
+/* Danh sách kỹ năng chi tiết bên trong */
+.skill-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* In đậm tên kỹ năng bằng màu cam san hô nhạt để tạo chiều sâu */
+.skill-item strong {
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Mô tả chi tiết kỹ năng */
+.skill-item p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* --- Tối ưu hóa Responsive --- */
+@media (max-width: 1200px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* Màn hình vừa: 2 nhóm 1 hàng */
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Màn hình điện thoại: xếp dọc hoàn toàn */
+    }
+}
