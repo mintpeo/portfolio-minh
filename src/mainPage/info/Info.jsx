@@ -2,12 +2,12 @@ import React, {useState} from "react"
 import './Info.css'
 import {useTranslation} from "react-i18next";
 import heroAvatarHead from "../../assets/cv_head.jpg";
-import heroAvatarFull from "../../assets/cv_full.jpg";
+import {useNavigate} from "react-router-dom";
 
 export default function Info() {
     const {t, i18n} = useTranslation();
     const lang = i18n.language;
-    const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+    const navigate = useNavigate();
 
     const infoData = {
         title: {
@@ -52,10 +52,9 @@ export default function Info() {
                             src={heroAvatarHead}
                             alt="Tran Quoc Minh Avatar"
                             className="hero-avatar"
-                            onClick={() => setIsImageModalOpen(true)}
+                            onClick={() => {window.open("https://www.canva.com/design/DAHPnD7GUs0/2vYGzxK2rlaQojoG6NTQ5g/view", "_blank", "noopener,noreferrer")}}
                         />
                     </div>
-                    {/*<a href="#projects" className="hero-btn">Creator journey</a>*/}
                 </div>
 
                 {/* Cột mốc Timeline cố định bên phải của Hero */}
@@ -67,16 +66,6 @@ export default function Info() {
                     <div className="timeline-dot"></div>
                 </div>
             </div>
-
-            {/*  Modal  */}
-            {isImageModalOpen && (
-                <div className="image-modal-overlay" onClick={() => setIsImageModalOpen(false)}>
-                    <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
-                        <button className="image-modal-close" onClick={() => setIsImageModalOpen(false)}>✕</button>
-                        <img src={heroAvatarFull} alt="Tran Quoc Minh Avatar" className="enlarged-avatar" />
-                    </div>
-                </div>
-            )}
         </div>
     )
 }

@@ -39,7 +39,6 @@ export default function Navbar() {
                     <a href="#info" onClick={() => setIsMenuOpen(false)}>{t("navbar:about")}</a>
                     <a href="#projects" onClick={() => setIsMenuOpen(false)}>{t("navbar:project")}</a>
                     <a href="#skills" onClick={() => setIsMenuOpen(false)}>{t("navbar:skill")}</a>
-                    <a href={CvFS} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>CV</a>
 
                     {/* Switch language */}
                     <button className="lang-toggle-btn" onClick={toggleLanguage}>

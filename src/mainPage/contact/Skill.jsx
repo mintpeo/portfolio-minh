@@ -49,7 +49,7 @@ export default function Skill() {
 
     return (
         <div id="skills" className="skills-section">
-            <div className="section-header">
+            <div className="section-header-skill">
                 <h2 className="section-title">{lang === 'vi' ? 'Kỹ năng & Nền tảng' : 'Skills & Expertise'}</h2>
                 <div className="title-underline"></div>
             </div>
