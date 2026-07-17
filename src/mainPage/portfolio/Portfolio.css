@@ -38,7 +38,7 @@
 
 /* Projects Section */
 .projects-section {
-    padding: 4rem 8% 6rem;
+    padding: 6rem 8% 0 10rem;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -214,6 +214,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 1rem;
     animation: fadeIn 0.3s ease-out;
 }
 
@@ -229,6 +230,9 @@
     position: relative;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 85vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Nút đóng (X) ở góc trên bên phải */
@@ -399,5 +403,16 @@
     }
     .section-timeline {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 2rem 1.2rem;
+        max-height: 90vh; /* Tăng nhẹ không gian chứa trên màn hình siêu nhỏ */
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem; /* Thu nhỏ tiêu đề một chút trên phone */
     }
 }
