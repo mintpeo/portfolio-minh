@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import './Navbar.css'
 
-import CvFS from '../../assets/cv-fs.pdf'
-
 export default function Navbar() {
     const { t, i18n } = useTranslation();
 
