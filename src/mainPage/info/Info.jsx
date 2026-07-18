@@ -23,7 +23,7 @@ export default function Info() {
           "vi": "Thích xây dựng các ứng dụng web và luôn sẵn sàng học hỏi những công nghệ mới. Yêu thích giải quyết vấn đề, viết mã nguồn sạch và không ngừng nâng cao kỹ năng. Mục tiêu là tích lũy kinh nghiệm để phát triển trở thành một lập trình viên chuyên nghiệp.",
         },
         chatbox: {
-            "en": "Always committed to doing my best.",
+            "en": "Trying to do better.",
             "vi": "Sẽ luôn cố gắng trong công việc.",
         }
     }
